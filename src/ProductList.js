@@ -1,12 +1,25 @@
-import React, { Component } from 'react'
-
+import React, { Component } from "react";
+import { ListGroup, ListGroupItem } from "reactstrap";
 export default class ProductList extends Component {
-    render() {
-        return (
-            <div>
-                <h3>{this.props.info.title}</h3>
-                <h3>{this.props.info.smth}</h3>
-            </div>
-        )
-    }
+  state = {
+    products: [
+      { productId: 1, productName: "Beverages" },
+      { productId: 2, productName: "Condiments" },
+    ],
+  };
+
+  render() {
+    return (
+      <div>
+        <h3>{this.props.info.title}</h3>
+        <ListGroup>
+          {this.state.products.map((product) => (
+            <ListGroupItem key={product.productId}>
+              {product.productName}
+            </ListGroupItem>
+          ))}
+        </ListGroup>
+      </div>
+    );
+  }
 }
