@@ -22,7 +22,10 @@ export default class Navi extends Component {
           <Collapse navbar>
             <Nav className="me-auto" navbar>
               <NavItem>
-                <Link to="form1">Form Demo 1</Link>
+              <NavLink>
+              <Link to="form1">Form Demo 1</Link>
+              </NavLink>
+               
               </NavItem>
               <NavItem>
                 <NavLink href="https://github.com/reactstrap/reactstrap">
