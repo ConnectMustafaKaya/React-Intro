@@ -2,25 +2,31 @@ import React, { Component } from "react";
 import { Form } from "reactstrap";
 
 export default class FormDemo1 extends Component {
-  state = { username: "" };
-  onChangeHandler =(event)=>{
-      this.setState({username:event.target.value})
-  }
-  onSubmitHandler =(event)=>{
-      event.preventDefault();
-      alert(this.state.username);
-}
+  state = { userName: "", city: "" };
+
+  onChangeHandler = (event) => {
+    //this.setState({username:event.target.value})
+    let name = event.target.name;
+    let value = event.target.value;
+
+    this.setState({ [name]: value });
+  };
+  onSubmitHandler = (event) => {
+    event.preventDefault();
+    alert(this.state.username);
+  };
 
   render() {
     return (
       <div>
         <Form onSubmit={this.onSubmitHandler}>
-            <h3>User Name</h3>
-            <input onChange={this.onChangeHandler} type="text"/> 
-            
-            <h3>User Name is {this.state.username}</h3>
-            <input value="Save" type="submit"/> 
-
+          <h3>User Name</h3>
+          <input name="userName" onChange={this.onChangeHandler} type="text" />
+          <h3>User Name is {this.state.userName}</h3>
+          <h3>City</h3>
+          <input name="city" onChange={this.onChangeHandler} type="text" />
+          <h3>City is {this.state.city}</h3>
+          <input value="Save" type="submit" />
         </Form>
       </div>
     );
